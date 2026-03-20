@@ -67,6 +67,9 @@ val fontGreenJetbrains @Composable get() = Typography(
     TextStyle(color = Color.White, fontFamily = fontFamilyJetbrains)
 )
 
+
+var haha = true
+
 val AppTypographyGreen @Composable get() = Typography(
     displayLarge = TextStyle(color = Color.Green),
     displayMedium = TextStyle(color = Color.Green),
