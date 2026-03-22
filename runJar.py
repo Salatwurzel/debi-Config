@@ -2,10 +2,10 @@
 import os
 import pathlib
 
-originalWorkingPath = pathlib.Path().resolve().as_posix()+"/"
-projectPath = pathlib.Path(__file__).parent.resolve().as_posix()+"/"
+originalWorkingPath = pathlib.Path().absolute().as_posix()
+projectPath = pathlib.Path(__file__).parent.resolve().as_posix()
 
-os.system("cd "+projectPath)
-os.system("./gradlew build")
-os.system("java -jar composeApp/build/compose/jars/org.debiconfig-linux-x64-1.0.0.jar")
-os.system("cd "+originalWorkingPath)
+os.chdir(projectPath)
+os.system("./gradlew :composeApp:packageUberJarForCurrentOS")
+os.system("java -jar composeApp/build/compose/jars/debi-config-linux-x64-1.0.0.jar")
+os.chdir(originalWorkingPath)

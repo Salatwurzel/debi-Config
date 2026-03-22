@@ -39,7 +39,7 @@ compose.desktop {
 
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "org.debiconfig"
+            packageName = "debi-config"
             packageVersion = "1.0.0"
         }
 
