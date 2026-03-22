@@ -71,10 +71,10 @@ fun mainGUI() {
 @Composable
 @Preview
 fun systemOptions(){
-    Text(" System: ", fontSize = 18.sp)
+    Text("⚙\uFE0F System: ", fontSize = 18.sp)
     HorizontalDivider(Modifier.fillMaxWidth(), color = Color.DarkGray)
     Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
-        var btnUpdateSystem = Button(onClick = { showPageConfirmFlatpak.value = true }) {
+        var btnUpdateSystem = SharpButtonMaxWidth(onClick = { showPageConfirmFlatpak.value = true }) {
             Text("Update System", color = Color.White)
         }
     }

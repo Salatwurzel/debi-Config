@@ -22,19 +22,29 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 
+private val title: String get() =
+        "Enable Flatpak and the Flathub repo?"
+
+
+private val description: String get(){
+    return """
+        Flatpak is a utility for software deployment and package management for Linux. 
+        
+        You can find and install many applications with the help of Flatpak and the Flathub repository.
+    """.trimIndent()
+}
+
 @Composable
 fun pageConfirmFlatpak(){
     mainPageBlur.value = 50.dp
 
     Dialog(onDismissRequest = {showPageConfirmFlatpak.value = false; mainPageBlur.value = 0.dp}) {
         Column(Modifier.sizeIn(maxWidth = 500.dp).background(Color.Black), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center) {
-            Column(Modifier.background(Color.Black)) {
-                Text("Enable Flatpak and the Flathub repo?", fontSize = 24.sp)
+            Column() {
+                Text(text = title, fontSize = 24.sp)
                 HorizontalDivider(thickness = 0.5.dp, color = Color.White)
                 Spacer(Modifier.height(25.dp))
-                Text("kljkljlkjkljlkjkljklj")
-                Text("kljkljlkjk8798ljlkjkljklj")
-                Text("kljkljlkhjkhjkhkjjkljlkjkljklj")
+                Text(text = description, color = Color.White)
             }
             Spacer(Modifier.height(40.dp))
             Row {
@@ -42,7 +52,11 @@ fun pageConfirmFlatpak(){
                     Text("Enable", color = Color.White)
                 }
                 Spacer(Modifier.width(75.dp))
-                Button(onClick = {}) {
+                Button(onClick = {
+                    org.debi_config.UI.showPageConfirmFlatpak.value = false;
+                    mainPageBlur.value = 0.dp
+                })
+                {
                     Text("Cancel", color = Color.White)
                 }
             }
