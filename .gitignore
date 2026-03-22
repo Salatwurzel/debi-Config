@@ -1,3 +1,5 @@
 /build/
 /.idea/
 /.kotlin/
+/AppImage/AppDir/usr/debi-config/
+/AppImage/debi-Config.AppImage
