@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=debi-Config
+Exec=debi-config
+Icon=icon
+Categories=Utility
