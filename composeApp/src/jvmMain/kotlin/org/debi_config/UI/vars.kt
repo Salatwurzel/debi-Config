@@ -8,12 +8,10 @@ import java.nio.file.Paths
 var btnGnomeSoftwareIsEnabled = mutableStateOf(true)
 
 
-var showPageWorking = mutableStateOf(false)
-var showPageConfirmFlatpak = mutableStateOf(false)
-
-
-var pageWorkingTitle = mutableStateOf("Working...")
-var pageWorkingText = mutableStateOf("")
+var showDialogPleaseWait = mutableStateOf(false)
+var showDialogConfirmFlatpak = mutableStateOf(false)
+var showDialogFinishedUpdate = mutableStateOf(false)
+var showDialogFinishedFlatpak = mutableStateOf(false)
 
 var mainPageBlur = mutableStateOf(0.dp)
 
