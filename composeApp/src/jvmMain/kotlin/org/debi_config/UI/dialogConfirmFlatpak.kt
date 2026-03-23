@@ -44,13 +44,15 @@ private val description: String get(){
     if (Locale.getDefault().language == "de") {
         description = """
             Flatpak ist ein Werkzeug für Linux um Software zu installieren und zu verwalten. 
+            
             Flatpak (inkl. Flathub) hilft dabei, viele Anwendungen zu finden und zu installieren.
+            
             Falls sie einen kompatiblen Software-Store installiert haben, wird Support für Flatpak automatisch aktiviert.
         """.trimIndent()
     }
-
     return description
 }
+
 
 @Composable
 fun dialogConfirmFlatpak(){
