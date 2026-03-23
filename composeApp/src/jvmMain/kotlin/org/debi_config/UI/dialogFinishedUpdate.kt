@@ -14,7 +14,7 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import java.util.Locale
 
-private val title: String get() {
+private val titleUpdate: String get() {
     var title = "Update finished!"
     if (Locale.getDefault().language == "de") {
         title = "Update abgeschlossen!"
@@ -22,7 +22,7 @@ private val title: String get() {
     return title
 }
 
-private val description: String get() {
+private val descriptionUpdate: String get() {
     return "The system has been updated successfully."
 }
 
@@ -38,10 +38,10 @@ fun dialogFinishedUpdate(){
             .padding(20.dp)
         , )
         {
-            Text(title, fontSize = 24.sp)
+            Text(titleUpdate, fontSize = 24.sp)
             HorizontalDivider(thickness = 0.5.dp, color = Color.White)
             Spacer(Modifier.height(25.dp))
-            Text(description, color = Color.White)
+            Text(descriptionUpdate, color = Color.White)
             Spacer(Modifier.height(25.dp))
             Box(Modifier.fillMaxHeight(), contentAlignment = Alignment.BottomStart){
                 Button(onClick = {showDialogFinishedUpdate.value = false; mainPageBlur.value = 0.dp; }) {

@@ -12,6 +12,7 @@ var showDialogPleaseWait = mutableStateOf(false)
 var showDialogConfirmFlatpak = mutableStateOf(false)
 var showDialogFinishedUpdate = mutableStateOf(false)
 var showDialogFinishedFlatpak = mutableStateOf(false)
+var showDialogConfirmSteam = mutableStateOf(false)
 
 var mainPageBlur = mutableStateOf(0.dp)
 

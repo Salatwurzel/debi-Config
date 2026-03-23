@@ -71,6 +71,10 @@ fun mainGUI() {
             if(showDialogFinishedUpdate.value){
                 dialogFinishedUpdate()
             }
+            if (showDialogConfirmSteam.value){
+                dialogConfirmSteam()
+
+            }
         }
     }
 }
@@ -117,7 +121,7 @@ fun softwareOptions(){
                 Text("Install Discord", color = Color.White)
         }
 
-        SharpButtonMaxWidth(onClick = {}){
+        SharpButtonMaxWidth(onClick = {showDialogConfirmSteam.value = true}){
                 Text("Install Steam")
         }
 

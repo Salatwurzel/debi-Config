@@ -23,7 +23,7 @@ import androidx.compose.ui.window.Dialog
 import org.debi_config.installFlatpak
 import java.util.Locale
 
-private val title: String get() {
+private val titleConfirmFlatpak: String get() {
     var title = "Enable Flatpak and the Flathub repo?"
     if (Locale.getDefault().language == "de") {
         title = "Flatpak und Flathub aktivieren?"
@@ -31,7 +31,7 @@ private val title: String get() {
     return title
 }
 
-private val description: String get(){
+private val descriptionConfirmFlatpak: String get(){
     var description = """
         Flatpak is a utility for software deployment and package management for Linux.
         
@@ -59,10 +59,10 @@ fun dialogConfirmFlatpak(){
     Dialog(onDismissRequest = {showDialogConfirmFlatpak.value = false; mainPageBlur.value = 0.dp}) {
         Column(Modifier.size(width = 600.dp, height = 350.dp).background(Color.DarkGray).padding(20.dp), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center) {
             Column() {
-                Text(text = title, fontSize = 24.sp, fontWeight = FontWeight.SemiBold)
+                Text(text = titleConfirmFlatpak, fontSize = 24.sp, fontWeight = FontWeight.SemiBold)
                 HorizontalDivider(thickness = 0.5.dp, color = Color.White)
                 Spacer(Modifier.height(25.dp))
-                Text(text = description, color = Color.White)
+                Text(text = descriptionConfirmFlatpak, color = Color.White)
             }
             Spacer(Modifier.height(40.dp))
             Row {
