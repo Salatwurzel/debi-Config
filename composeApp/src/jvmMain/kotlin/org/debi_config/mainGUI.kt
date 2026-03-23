@@ -26,7 +26,7 @@ import org.debi_config.UI.*
 @Composable
 @Preview
 fun mainGUI() {
-    val innerColumnStyle: Modifier = Modifier.size(375.dp, 300.dp).border(0.5.dp, Color.LightGray).background(Color.Black)
+    val innerColumnStyle: Modifier = Modifier.size(375.dp, 300.dp).border(0.1.dp, Color.DarkGray).background(Color.Black)
 
     println("Showing mainGUI()")
 
@@ -82,7 +82,7 @@ fun systemOptions(){
 
     Column(modifier = Modifier.fillMaxWidth()) {
         Text(" $title", fontSize = 22.sp, fontFamily = FontFamily.Monospace, color = Color.Green)
-        HorizontalDivider(Modifier.fillMaxWidth(), color = Color.LightGray)
+        HorizontalDivider(Modifier.fillMaxWidth(), color = Color.DarkGray)
         Spacer(Modifier.height(10.dp))
 
         SharpButtonMaxWidth(onClick = { updateSystem() }) {
@@ -105,7 +105,7 @@ fun softwareOptions(){
 
     Column(){
         Text(" $title", fontSize = 22.sp, fontFamily = FontFamily.Monospace, color = Color.Green)
-        HorizontalDivider(Modifier.fillMaxWidth(), color = Color.LightGray)
+        HorizontalDivider(Modifier.fillMaxWidth(), color = Color.DarkGray)
 
         Spacer(Modifier.height(10.dp))
 

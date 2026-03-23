@@ -57,7 +57,7 @@ private val description: String get(){
 fun dialogConfirmFlatpak(){
     mainPageBlur.value = 50.dp
     Dialog(onDismissRequest = {showDialogConfirmFlatpak.value = false; mainPageBlur.value = 0.dp}) {
-        Column(Modifier.size(width = 600.dp, height = 400.dp).background(Color.DarkGray).padding(20.dp), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center) {
+        Column(Modifier.size(width = 600.dp, height = 350.dp).background(Color.DarkGray).padding(20.dp), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center) {
             Column() {
                 Text(text = title, fontSize = 24.sp, fontWeight = FontWeight.SemiBold)
                 HorizontalDivider(thickness = 0.5.dp, color = Color.White)
