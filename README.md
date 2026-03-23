@@ -1,6 +1,7 @@
-## debi-Config 
+# debi-Config
 
-## VERY EARLY DEVELOPMENT, HIGH CHANCE OF BUGS AND ERRORS!
+## VERY EARLY DEVELOPMENT. THINGS WILL BREAK, BUGS WILL HAPPEN.
+##
+### A small helpful tool for modifying Debian and adding features.
 
-A small helpful tool for modifying Debian and adding features.
-Made for beginners as an alternative to terminal commands.
+### Made for beginners who just want to apply common tweaks to Debian, without having to type "complicated commands" in the terminal.
