@@ -36,8 +36,9 @@ fun loopUpdateVars(){
                     }
                 }
             }
-            if (c == 0){
-                flathubIsInstalled.value = false
+            when (c){
+                0 -> {flathubIsInstalled.value = false}
+                else -> {flathubIsInstalled.value = true}
             }
 
             Thread.sleep(2500)
