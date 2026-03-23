@@ -1,10 +1,14 @@
-package org.debi_config.UI
+@file:OptIn(DelicateCoroutinesApi::class)
+
+package org.debi_config.ui
 
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import java.nio.file.Files
 import java.nio.file.Paths
-import java.util.Locale.getDefault
 
 var mainPageBlur = mutableStateOf(0.dp)
 
@@ -18,15 +22,15 @@ var showDialogConfirmSteam = mutableStateOf(false)
 var showDialogFinishedUpdate = mutableStateOf(false)
 var showDialogFinishedFlatpak = mutableStateOf(false)
 var ShowDialogFinishedSteam = mutableStateOf(false)
+var showNein = mutableStateOf(false)
 
 
 
 
 
 fun loopUpdateVars(){
-    Thread.ofVirtual().start(){
+    GlobalScope.launch{
         while(true){
-
             //FLATHUB ENABLED CHECKER
             var c = 0
             if(Files.exists(Paths.get("/var/lib/flatpak/repo/config"))){
@@ -41,7 +45,7 @@ fun loopUpdateVars(){
                 else -> {flathubIsInstalled.value = true}
             }
 
-            Thread.sleep(2500)
+            Thread.sleep(2000)
         }
     }
 }

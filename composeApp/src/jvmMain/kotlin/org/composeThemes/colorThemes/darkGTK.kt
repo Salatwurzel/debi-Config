@@ -3,6 +3,9 @@ package org.composeThemes.colorThemes
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.ui.graphics.Color
 
+//mac like blue button color: 0xFF2196F3
+//green button color: 0xFF33b249
+
 val darkGTK = darkColorScheme(
     primary = Color(0xFF0031A5),
     onPrimary = Color(0xFFEFEFEF),

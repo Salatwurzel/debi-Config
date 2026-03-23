@@ -1,9 +1,15 @@
+@file:OptIn(DelicateCoroutinesApi::class)
+
 package org.debi_config
 
 import androidx.compose.ui.unit.dp
-import org.debi_config.UI.mainPageBlur
-import org.debi_config.UI.showDialogFinishedUpdate
-import org.debi_config.UI.showDialogPleaseWait
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import org.debi_config.ui.DialogFinishedUpdate
+import org.debi_config.ui.mainPageBlur
+import org.debi_config.ui.showDialogFinishedUpdate
+import org.debi_config.ui.showDialogPleaseWait
 import java.nio.file.Files
 import kotlin.io.path.Path
 
@@ -22,7 +28,8 @@ fun updateSystem(){
         allCommandsInOneString += "$it; "
     }
 
-    Thread.ofVirtual().start {
+//    Thread.ofVirtual().init {
+    GlobalScope.launch {
         println("Starting system update")
         showDialogPleaseWait.value = true
         mainPageBlur.value = 50.dp
@@ -30,6 +37,7 @@ fun updateSystem(){
         println("System update finished")
         showDialogPleaseWait.value = false
         mainPageBlur.value = 0.dp
-        showDialogFinishedUpdate.value = true
+        DialogFinishedUpdate.show()
+//    }
     }
 }

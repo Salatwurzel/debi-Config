@@ -1,12 +1,9 @@
 package org.debi_config
 
 import androidx.compose.ui.unit.dp
-import org.debi_config.UI.mainPageBlur
-import org.debi_config.UI.showDialogFinishedFlatpak
-import org.debi_config.UI.showDialogFinishedUpdate
-import org.debi_config.UI.showDialogPleaseWait
-import java.nio.file.Files
-import kotlin.io.path.Path
+import org.debi_config.ui.mainPageBlur
+import org.debi_config.ui.showDialogFinishedFlatpak
+import org.debi_config.ui.showDialogPleaseWait
 
 fun installFlatpak(){
     println("Start installFlatpak()")

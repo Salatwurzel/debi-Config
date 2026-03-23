@@ -1,8 +1,8 @@
 package org.debi_config
 
 import androidx.compose.ui.unit.dp
-import org.debi_config.UI.mainPageBlur
-import org.debi_config.UI.showDialogPleaseWait
+import org.debi_config.ui.mainPageBlur
+import org.debi_config.ui.showDialogPleaseWait
 
 fun installSteam(){
     Thread.ofVirtual().start(){

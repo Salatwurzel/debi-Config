@@ -5,7 +5,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import androidx.compose.ui.window.rememberWindowState
-import org.debi_config.UI.loopUpdateVars
+import org.debi_config.ui.DialogWorking
+import org.debi_config.ui.loopUpdateVars
+import org.debi_config.ui.mainPageBlur
 import java.util.Locale
 import kotlin.system.exitProcess
 
@@ -15,10 +17,11 @@ fun main() = application {
     Locale.setDefault(Locale("en", "US"))
     println("Language: ${Locale.getDefault().language}")
     println("Creating Window")
+
     Window(
         onCloseRequest = {exitProcess(0)},
         title = "debi-Config",
-        state = rememberWindowState(size = DpSize(820.dp, 775.dp)),
+        state = rememberWindowState(size = DpSize(820.dp, 785.dp)),
     ) {
         loopUpdateVars()
         mainGUI()
