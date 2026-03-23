@@ -32,3 +32,13 @@ val darkGTK3 = darkColorScheme(
     surface = Color(0xFF101010),
     primaryFixed = Color(0xFF00DB34),
 )
+
+val darkGTK3Original = darkColorScheme(
+    primary = Color(0xFF2F2F2F),
+    onPrimary = Color(0xFFADADAD),
+    onPrimaryFixed = Color(0xFFFF0000),
+    secondary = Color(0xFF2E2E32),
+    background = Color(0xFF1d1d20),
+    surface = Color(0xFF101010),
+    primaryFixed = Color(0xFF00DB34),
+)

@@ -90,7 +90,7 @@ fun systemOptions(){
         Spacer(Modifier.height(10.dp))
 
         SharpButtonMaxWidth(onClick = { updateSystem() }) {
-            Text("Update System")
+        Text("Update System")
         }
 
         SharpButtonMaxWidth(onClick = {}) {
