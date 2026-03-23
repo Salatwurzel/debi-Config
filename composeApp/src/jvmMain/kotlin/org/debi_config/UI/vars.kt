@@ -1,7 +1,12 @@
+@file:OptIn(DelicateCoroutinesApi::class)
+
 package org.debi_config.UI
 
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import java.nio.file.Files
 import java.nio.file.Paths
 import java.util.Locale.getDefault
@@ -24,7 +29,7 @@ var ShowDialogFinishedSteam = mutableStateOf(false)
 
 
 fun loopUpdateVars(){
-    Thread.ofVirtual().start(){
+    GlobalScope.launch{
         while(true){
 
             //FLATHUB ENABLED CHECKER
@@ -41,7 +46,7 @@ fun loopUpdateVars(){
                 else -> {flathubIsInstalled.value = true}
             }
 
-            Thread.sleep(2500)
+            Thread.sleep(2000)
         }
     }
 }

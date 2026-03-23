@@ -18,7 +18,7 @@ fun main() = application {
     Window(
         onCloseRequest = {exitProcess(0)},
         title = "debi-Config",
-        state = rememberWindowState(size = DpSize(820.dp, 775.dp)),
+        state = rememberWindowState(size = DpSize(820.dp, 785.dp)),
     ) {
         loopUpdateVars()
         mainGUI()
