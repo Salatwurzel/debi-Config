@@ -28,16 +28,16 @@ fun loopUpdateVars(){
         while(true){
 
             //FLATHUB ENABLED CHECKER
-            when(Files.exists(Paths.get("/var/lib/flatpak/repo/config"))){
-                true -> {
-                    Files.newBufferedReader(Paths.get("/var/lib/flatpak/repo/config")).forEachLine {
-                        when (it.lowercase(getDefault()).contains("flathub")){
-                            true -> {flathubIsInstalled.value = true}
-                            false -> {flathubIsInstalled.value = false}
-                        }
+            var c = 0
+            if(Files.exists(Paths.get("/var/lib/flatpak/repo/config"))){
+                Files.newBufferedReader(Paths.get("/var/lib/flatpak/repo/config")).forEachLine {
+                    if (it.lowercase().contains("flathub")){
+                        c++
                     }
                 }
-                false -> { flathubIsInstalled.value = false }
+            }
+            if (c == 0){
+                flathubIsInstalled.value = false
             }
 
             Thread.sleep(2500)
