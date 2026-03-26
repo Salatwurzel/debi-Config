@@ -1,6 +1,12 @@
+@file:OptIn(DelicateCoroutinesApi::class)
+
 package org.debi_config
 
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import org.debi_config.ui.mainPageBlur
 import org.debi_config.ui.showDialogFinishedFlatpak
 import org.debi_config.ui.showDialogPleaseWait
@@ -15,7 +21,7 @@ fun installFlatpak(){
 
     val allCommandsInOneString = commands.joinToString(separator = "; ")
 
-    Thread.ofVirtual().start {
+    GlobalScope.launch{
         println("Starting Flatpak+Flathub installation")
         showDialogPleaseWait.value = true
         mainPageBlur.value = 50.dp

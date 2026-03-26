@@ -24,8 +24,8 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import org.debi_config.installSteam
 
-var title = "Install Steam from Flathub?"
-var description = "This will download and install Steam from Flathub."
+private var title = "Install Steam from Flathub?"
+private var description = "This will download and install Steam from Flathub."
 
 class hehe{
     fun bla(){

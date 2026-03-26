@@ -28,7 +28,7 @@ val darkGTK2 = darkColorScheme(
 
 val darkGTK3 = darkColorScheme(
     primary = Color(0xFF2F2F2F),
-    onPrimary = Color(0xFFADADAD),
+    onPrimary = Color(0xFF3CFF00),
     onPrimaryFixed = Color(0xFFFF0000),
     secondary = Color(0xFF2E2E32),
     background = Color(0xFF1d1d20),

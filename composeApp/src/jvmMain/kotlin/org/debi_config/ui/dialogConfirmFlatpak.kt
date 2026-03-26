@@ -41,7 +41,7 @@ private val titleConfirmFlatpak: String get() {
 
 private val descriptionConfirmFlatpak: String get(){
     var description = """
-        Flatpak is a utility for software deployment and package management for Linux.
+        Flatpak is a software distribution tool for Linux.
         
         You can find and install many applications with the help of Flatpak and the Flathub repository.
         

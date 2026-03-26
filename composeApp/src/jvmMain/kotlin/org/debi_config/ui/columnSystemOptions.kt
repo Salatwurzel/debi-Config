@@ -1,15 +1,12 @@
+@file:Suppress("FunctionWithLambdaExpressionBody", "LiftReturnOrAssignment")
+
 package org.debi_config.ui
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.material3.Button
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -26,28 +23,55 @@ import debi_config.composeapp.generated.resources.Res
 import org.debi_config.SharpButtonMaxWidth
 import org.debi_config.updateSystem
 import org.jetbrains.compose.resources.Font
+import java.util.Locale
+
+private const val header = "SYSTEM: "
+private val btnUpdateSystemText: String get(){
+    val btnText = "Update System"
+    if (Locale.getDefault().language == "de") {
+        return "System aktualisieren"
+    } else{
+        return btnText
+    }
+}
+
+private val btnAddNonFreeRepoText: String get() {
+    val btnText = "Enable non-free software repository"
+    if (Locale.getDefault().language == "de") {
+        return "Zugriff auf geschlossene Software aktivieren"
+    } else{
+        return btnText
+    }
+}
+
+private val btnInstallNewestKernelText: String get(){
+    val btnText = "Install newest Kernel (backports)"
+    if (Locale.getDefault().language == "de") {
+        return "Neuesten Kernel installieren (backports)"
+    } else{
+        return btnText
+    }
+}
 
 @Composable
 @Preview
 fun columnSystemOptions(){
-    val title = "SYSTEM: "
-
     Column(modifier = Modifier.fillMaxWidth()) {
         Column(Modifier.fillMaxWidth().background(Color.Black).shadow(0.5.dp)){
-            Text(" $title", fontSize = 22.sp, fontFamily = FontFamily(Font(Res.font.JetBrainsMono)), color = Color.Green)
+            Text(" $header", fontSize = 22.sp, fontFamily = FontFamily(Font(Res.font.JetBrainsMono)), color = Color.Green)
             HorizontalDivider(Modifier.fillMaxWidth(), color = Color.DarkGray)
         }
         Spacer(Modifier.height(5.dp))
 
         Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
             SharpButtonMaxWidth(onClick = { updateSystem() }) {
-                Text("Update System", color = Color.White)
+                Text(btnUpdateSystemText, color = Color.White)
             }
             SharpButtonMaxWidth(onClick = {}) {
-                Text("jojoqu kasdo", color = Color.White)
+                Text(btnAddNonFreeRepoText, color = Color.White)
             }
             SharpButtonMaxWidth(onClick = {}) {
-                Text("jojoqu kasdo", color = Color.White)
+                Text(btnInstallNewestKernelText, color = Color.White)
             }
             SharpButtonMaxWidth(onClick = {}) {
                 Text("jojoqu kasdo", color = Color.White)

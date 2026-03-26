@@ -41,7 +41,7 @@ fun columnSoftwareOptions(){
                 Text("Enable Flathub")
             }
 
-            SharpButtonMaxWidth(onClick = {}) {
+            SharpButtonMaxWidth(onClick = { DialogWorking.setStatusMessage("Hallo und so") ;DialogWorking.setVisible(true)}) {
                 Text("Install Discord")
             }
 

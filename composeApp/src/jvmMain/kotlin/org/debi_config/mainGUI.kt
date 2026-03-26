@@ -14,6 +14,7 @@ import androidx.compose.ui.draw.blur
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -37,9 +38,10 @@ fun mainGUI() {
             Column(modifier = Modifier.fillMaxSize().padding(5.dp).blur(radius = mainPageBlur.value)) {
 
                 val topCenter = Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-                    Text("debi-Config", fontSize = 28.sp, fontFamily = FontFamily.Monospace)
+                    Spacer(Modifier.height(10.dp))
+                    Text("debi-Config", fontSize = 36.sp)
                     Text("Version: $currentVersion", fontSize = 10.sp)
-                    Spacer(Modifier.height(35.dp))
+                    Spacer(Modifier.height(30.dp))
                 }
 
                 val mainBox = Box(modifier = Modifier.fillMaxWidth().fillMaxHeight(0.98f), contentAlignment = Alignment.TopCenter) {
@@ -58,7 +60,7 @@ fun mainGUI() {
 
                         val secondColumnRow = Row() {
                             Column(modifier = innerColumnStyle){
-
+                                columnGnomeOptions()
                             }
                             Spacer(Modifier.width(35.dp))
                             Column(modifier = innerColumnStyle){
