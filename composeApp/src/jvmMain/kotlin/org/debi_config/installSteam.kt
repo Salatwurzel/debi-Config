@@ -33,16 +33,19 @@ fun installSteam(){
             GlobalScope.launch {
                 pkExecNewTerminal("sudo apt install flatpak -y; sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo")
                 newTerminal("flatpak install -y flathub com.valvesoftware.Steam")
+                mainPageBlur.value = 0.dp
+                DialogWorking.setStatusMessage("")
+                DialogWorking.setVisible(false)
+                DialogMessage.showMessage(successMessage)
             }
         } else{
             GlobalScope.launch {
                 newTerminal("flatpak install -y flathub com.valvesoftware.Steam")
+                mainPageBlur.value = 0.dp
+                DialogWorking.setStatusMessage("")
+                DialogWorking.setVisible(false)
+                DialogMessage.showMessage(successMessage)
             }
         }
-
-        mainPageBlur.value = 0.dp
-        DialogWorking.setStatusMessage("")
-        DialogWorking.setVisible(false)
-        DialogMessage.showMessage(successMessage)
     }
 }
