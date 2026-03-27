@@ -3,13 +3,11 @@
 package org.debi_config
 
 import androidx.compose.ui.unit.dp
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import org.debi_config.ui.DialogWorking
 import org.debi_config.ui.mainPageBlur
-import org.debi_config.ui.showDialogFinishedFlatpak
-import org.debi_config.ui.showDialogPleaseWait
 
 fun installFlatpak(){
     println("Start installFlatpak()")
@@ -23,12 +21,13 @@ fun installFlatpak(){
 
     GlobalScope.launch{
         println("Starting Flatpak+Flathub installation")
-        showDialogPleaseWait.value = true
         mainPageBlur.value = 50.dp
+        DialogWorking.setVisible(true)
+        DialogWorking.setStatusMessage("Downloading and installing Flatpak")
         pkExecNewHiddenTerminal(command = allCommandsInOneString)
         println("Finished Flatpak+Flathub installation")
-        showDialogPleaseWait.value = false
+        DialogWorking.setStatusMessage("")
+        DialogWorking.setVisible(false)
         mainPageBlur.value = 0.dp
-        showDialogFinishedFlatpak.value = true
     }
 }
