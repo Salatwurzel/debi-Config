@@ -20,5 +20,5 @@ fun installDiscord(){
         pkExecNewTerminal("sudo apt install flatpak -y; sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo")
     }
     newTerminal("flatpak install -y flathub com.discordapp.Discord")
-    DialogMessage.showMessage("Discord installed successfully!")
+    DialogMessage.showMessage(successMessage)
 }
