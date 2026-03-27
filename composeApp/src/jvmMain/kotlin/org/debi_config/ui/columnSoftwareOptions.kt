@@ -24,6 +24,7 @@ import androidx.compose.ui.unit.sp
 import debi_config.composeapp.generated.resources.JetBrainsMono
 import debi_config.composeapp.generated.resources.Res
 import org.debi_config.SharpButtonMaxWidth
+import org.debi_config.installSteam
 import org.jetbrains.compose.resources.Font
 import java.util.Locale
 
@@ -71,7 +72,7 @@ fun columnSoftwareOptions(){
                 Text(btnEnableFlathubText)
             }
 
-            SharpButtonMaxWidth(onClick = { DialogWorking.setStatusMessage("Hallo und so") ;DialogWorking.setVisible(true)}) {
+            SharpButtonMaxWidth(onClick = { installSteam() }) {
                 Text(btnInstallDiscordText)
             }
 
