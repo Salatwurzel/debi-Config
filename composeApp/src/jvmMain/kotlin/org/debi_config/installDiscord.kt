@@ -1,12 +1,10 @@
-@file:Suppress("SimplifyBooleanWithConstants")
+@file:Suppress("SimplifyBooleanWithConstants", "LiftReturnOrAssignment")
 
 package org.debi_config
 
 import org.debi_config.ui.DialogMessage
 import org.debi_config.ui.flathubIsInstalled
-import java.nio.file.Files
-import java.nio.file.Path
-import java.util.Locale
+import java.util.*
 
 val successMessage: String get() {
     val message = "Discord installed successfully!"
