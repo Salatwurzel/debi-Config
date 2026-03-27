@@ -19,6 +19,8 @@ import androidx.compose.ui.unit.sp
 import debi_config.composeapp.generated.resources.JetBrainsMono
 import debi_config.composeapp.generated.resources.Res
 import org.debi_config.SharpButtonMaxWidth
+import org.debi_config.installTaskbar
+import org.debi_config.newTerminal
 import org.jetbrains.compose.resources.Font
 
 @Preview
@@ -38,8 +40,8 @@ fun columnGnomeOptions() {
         Spacer(Modifier.height(5.dp))
 
         Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-            SharpButtonMaxWidth(onClick = {}) {
-                Text("Enable Taskbar + TrayIcons")
+            SharpButtonMaxWidth(onClick = { installTaskbar() }) {
+                Text("Enable Taskbar and tray icons")
             }
         }
     }
