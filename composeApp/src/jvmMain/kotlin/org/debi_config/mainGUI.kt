@@ -60,7 +60,9 @@ fun mainGUI() {
 
                         val secondColumnRow = Row() {
                             Column(modifier = innerColumnStyle){
-                                columnGnomeOptions()
+                                if(System.getenv("DESKTOP_SESSION").lowercase().contains("gnome")){
+                                    columnGnomeOptions()
+                                }
                             }
                             Spacer(Modifier.width(35.dp))
                             Column(modifier = innerColumnStyle){
