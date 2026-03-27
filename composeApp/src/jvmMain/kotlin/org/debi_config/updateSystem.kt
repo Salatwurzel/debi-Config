@@ -6,11 +6,11 @@ import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import org.debi_config.ui.DialogFinishedUpdate
+import org.debi_config.ui.DialogMessage
+import org.debi_config.ui.DialogWorking
 import org.debi_config.ui.mainPageBlur
-import org.debi_config.ui.showDialogFinishedUpdate
-import org.debi_config.ui.showDialogPleaseWait
 import java.nio.file.Files
+import java.util.*
 import kotlin.io.path.Path
 
 fun updateSystem(){
@@ -28,16 +28,22 @@ fun updateSystem(){
         allCommandsInOneString += "$it; "
     }
 
-//    Thread.ofVirtual().init {
+
     GlobalScope.launch {
         println("Starting system update")
-        showDialogPleaseWait.value = true
         mainPageBlur.value = 50.dp
+        DialogWorking.setVisible(true)
+
         pkExecNewHiddenTerminal(command = allCommandsInOneString)
         println("System update finished")
-        showDialogPleaseWait.value = false
+
         mainPageBlur.value = 0.dp
-        DialogFinishedUpdate.show()
-//    }
+        DialogWorking.setVisible(false)
+
+        if (Locale.getDefault().language == "de"){
+            DialogMessage.showMessage("System wurde aktualisiert")
+        } else{
+            DialogMessage.showMessage("System updated")
+        }
     }
 }
