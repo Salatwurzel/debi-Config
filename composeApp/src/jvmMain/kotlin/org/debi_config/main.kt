@@ -5,10 +5,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import androidx.compose.ui.window.rememberWindowState
-import org.debi_config.ui.DialogWorking
 import org.debi_config.ui.loopUpdateVars
-import org.debi_config.ui.mainPageBlur
-import java.util.Locale
+import java.util.*
 import kotlin.system.exitProcess
 
 const val currentVersion = "0.0.1"
