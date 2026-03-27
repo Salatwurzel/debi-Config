@@ -1,3 +1,5 @@
+@file:Suppress("CanConvertToMultiDollarString")
+
 package org.debi_config.ui
 
 import androidx.compose.foundation.background
@@ -22,11 +24,30 @@ import org.debi_config.SharpButtonMaxWidth
 import org.debi_config.installTaskbar
 import org.debi_config.newTerminal
 import org.jetbrains.compose.resources.Font
+import java.awt.SystemColor.text
+import java.util.Locale
+
+private val title: String get(){
+    val text = "Desktop-Options"
+    if (Locale.getDefault().language == "de") {
+        return "Desktop-Optionen".uppercase()
+    } else{
+        return text.uppercase()
+    }
+}
+
+private val btnTaskbarText: String get(){
+    val message = "Enable Taskbar and tray icons"
+    if (Locale.getDefault().language == "de") {
+        return "Taskleiste installieren"
+    } else{
+        return message
+    }
+}
 
 @Preview
 @Composable
 fun columnGnomeOptions() {
-    val title = "DESKTOP-OPTIONS: "
     Column(modifier = Modifier.fillMaxWidth()) {
         Column(Modifier.fillMaxWidth().background(Color.Black).shadow(0.5.dp)) {
             Text(
@@ -41,7 +62,7 @@ fun columnGnomeOptions() {
 
         Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
             SharpButtonMaxWidth(onClick = { installTaskbar() }) {
-                Text("Enable Taskbar and tray icons")
+                Text(btnTaskbarText)
             }
         }
     }

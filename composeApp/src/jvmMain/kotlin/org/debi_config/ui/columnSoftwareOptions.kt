@@ -1,3 +1,5 @@
+@file:Suppress("LiftReturnOrAssignment")
+
 package org.debi_config.ui
 
 import androidx.compose.foundation.background
@@ -23,12 +25,40 @@ import debi_config.composeapp.generated.resources.JetBrainsMono
 import debi_config.composeapp.generated.resources.Res
 import org.debi_config.SharpButtonMaxWidth
 import org.jetbrains.compose.resources.Font
+import java.util.Locale
+
+private const val title = "SOFTWARE: "
+
+private val btnEnableFlathubText: String get(){
+    val btnText = "Enable Flathub"
+    if (Locale.getDefault().language == "de") {
+        return "Flathub akt..(mehr Software-Auswahl)"
+    } else{
+        return btnText
+    }
+}
+
+private val btnInstallDiscordText: String get(){
+    val btnText = "Install Discord"
+    if (Locale.getDefault().language == "de") {
+        return "Discord installieren"
+    } else{
+        return btnText
+    }
+}
+
+private val btnInstallSteamText: String get(){
+    val btnText = "Install Steam"
+    if (Locale.getDefault().language == "de") {
+        return "Steam installieren"
+    } else{
+        return btnText
+    }
+}
 
 @Composable
 @Preview
 fun columnSoftwareOptions(){
-    val title = "SOFTWARE: "
-
     Column(modifier = Modifier.fillMaxWidth()){
         Column(Modifier.fillMaxWidth().background(Color.Black).shadow(0.5.dp)){
             Text(" $title", fontSize = 22.sp, fontFamily = FontFamily(Font(Res.font.JetBrainsMono)), color = Color.Green)
@@ -38,20 +68,30 @@ fun columnSoftwareOptions(){
 
         Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
             SharpButtonMaxWidth(onClick = {showDialogConfirmFlatpak.value = true}) {
-                Text("Enable Flathub")
+                Text(btnEnableFlathubText)
             }
 
             SharpButtonMaxWidth(onClick = { DialogWorking.setStatusMessage("Hallo und so") ;DialogWorking.setVisible(true)}) {
-                Text("Install Discord")
+                Text(btnInstallDiscordText)
             }
 
             SharpButtonMaxWidth(onClick = {showDialogConfirmSteam.value = true}){
-                Text("Install Steam")
+                Text(btnInstallSteamText)
             }
 
-            SharpButtonMaxWidth(onClick = { DialogMessage.showMessage("HALLO UND SO,\nIch bins Peter\n der Meter")}) {
-                Text("Button")
+            SharpButtonMaxWidth(onClick = {checkIfGnomeInstalled()}) {
+                Text("Testbutton")
             }
         }
+    }
+}
+
+private fun checkIfGnomeInstalled(): Boolean{
+    if(System.getenv("DESKTOP_SESSION").lowercase().contains("gnome")) {
+        println("Checking if gnome is running: Found it")
+        return true
+    } else{
+        println("Checking if gnome is running: Couldnt find it")
+        return false
     }
 }

@@ -38,7 +38,7 @@ private val btnUpdateSystemText: String get(){
 private val btnAddNonFreeRepoText: String get() {
     val btnText = "Enable non-free software repository"
     if (Locale.getDefault().language == "de") {
-        return "Zugriff auf geschlossene Software aktivieren"
+        return "non-free Software-Repo aktivieren"
     } else{
         return btnText
     }
@@ -47,7 +47,7 @@ private val btnAddNonFreeRepoText: String get() {
 private val btnInstallNewestKernelText: String get(){
     val btnText = "Install newest Kernel (backports)"
     if (Locale.getDefault().language == "de") {
-        return "Neuesten Kernel installieren (backports)"
+        return "Neuen Kernel installieren (backports)"
     } else{
         return btnText
     }
@@ -72,9 +72,6 @@ fun columnSystemOptions(){
             }
             SharpButtonMaxWidth(onClick = {}) {
                 Text(btnInstallNewestKernelText, color = Color.White)
-            }
-            SharpButtonMaxWidth(onClick = {}) {
-                Text("jojoqu kasdo", color = Color.White)
             }
         }
 
