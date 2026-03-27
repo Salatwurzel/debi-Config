@@ -23,27 +23,36 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import org.debi_config.installSteam
+import java.util.Locale
 
-private var title = "Install Steam from Flathub?"
-private var description = "This will download and install Steam from Flathub."
-
-class hehe{
-    fun bla(){
-        println("bla")
+private val title: String get() {
+    var text = "Install Steam from Flathub?"
+    if (Locale.getDefault().language == "de") {
+        text = "Steam von Flathub installieren?"
     }
+    return text
+}
 
-    companion object {
-        fun show() {
-            showDialogPleaseWait.value = true
-            println(showDialogPleaseWait.value)
-        }
+private val description: String get() {
+    var text = "This will download and install Steam from Flathub."
+    if (Locale.getDefault().language == "de"){
+        text = "Hiermit wird Steam von Flathub heruntergeladen und installiert."
+    }
+    return text
+}
+
+private val btnInstallSteamText: String get(){
+    val btnText = "Install Steam"
+    if (Locale.getDefault().language == "de") {
+        return "Steam installieren"
+    } else{
+        return btnText
     }
 }
 
 @Composable
 fun dialogConfirmSteam(){
-
-    mainPageBlur.value = 50.dp
+    mainPageBlur.value = 75.dp
     Dialog(onDismissRequest = {showDialogConfirmFlatpak.value = false; mainPageBlur.value = 0.dp}) {
 
         Column(Modifier.size(width = 600.dp, height = 350.dp).background(Color.DarkGray).padding(20.dp), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center) {
@@ -61,7 +70,7 @@ fun dialogConfirmSteam(){
                     showDialogConfirmSteam.value = false;mainPageBlur.value = 0.dp;
                     installSteam();
                 }, modifier = Modifier.width(175.dp), colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF33b249))) {
-                    Text("Install Steam", color = Color.White)
+                    Text(btnInstallSteamText, color = Color.White)
                 }
                 Spacer(Modifier.width(50.dp))
                 val cancelButton = Button(onClick = {

@@ -54,10 +54,19 @@ private val descriptionConfirmFlatpak: String get(){
             
             Flatpak (inkl. Flathub) hilft dabei, viele Anwendungen zu finden und zu installieren.
             
-            Falls sie einen kompatiblen Software-Store installiert haben, wird Support für Flatpak automatisch aktiviert.
+            Falls sie einen kompatiblen Software-Store installiert haben, wird die Unterstützung automatisch aktiviert.
         """.trimIndent()
     }
     return description
+}
+
+private val btnInstallFlatpakText: String get(){
+    val btnText = "Enable Flatpak"
+    if (Locale.getDefault().language == "de") {
+        return "Flatpak installieren"
+    } else{
+        return btnText
+    }
 }
 
 
@@ -79,7 +88,7 @@ fun dialogConfirmFlatpak(){
                     mainPageBlur.value = 0.dp
                     installFlatpak()
                 }) {
-                    Text("Enable", color = Color.White)
+                    Text(btnInstallFlatpakText, color = Color.White)
                 }
 
                 Spacer(Modifier.width(75.dp))
